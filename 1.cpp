@@ -56,5 +56,45 @@ public:
         }
     }
 };
+class VariantProcedure : public VariantValue {
+private:
+    std::function<void()> value;
+
+public:
+    VariantProcedure(const std::function<void()>& val) : value(val) {}
+
+    void print() const override {
+        std::cout << "Procedure" << std::endl;
+    }
+
+    void execute() const {
+        value();
+    }
+};
+
+
+class Variant {
+private:
+    VariantValue* data;
+
+public:
+    Variant() : data(nullptr) {}
+
+    void setData(VariantValue* newData) {
+        data = newData;
+    }
+
+    void printData() const {
+        if (data) {
+            data->print();
+        } else {
+            std::cout << "No data" << std::endl;
+        }
+    }
+
+    ~Variant() {
+        delete data;
+    }
+};
 
 
