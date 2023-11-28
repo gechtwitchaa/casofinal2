@@ -57,3 +57,12 @@ public:
         }
     }
 };
+int main() {
+    Variant v;
+
+
+
+    std::cout << v.to_string() << std::endl;
+
+    return 0;
+}
