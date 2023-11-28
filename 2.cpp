@@ -45,3 +45,15 @@ public:
     }
 };
 
+
+class
+
+public:
+    std::string to_string() const {
+        if (data) {
+            return data->to_string();
+        } else {
+            return "No data";
+        }
+    }
+};
