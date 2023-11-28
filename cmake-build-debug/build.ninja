@@ -106,6 +106,39 @@ build 2.exe: CXX_EXECUTABLE_LINKER__2_Debug CMakeFiles/2.dir/2.cpp.obj
   TARGET_IMPLIB = lib2.dll.a
   TARGET_PDB = 2.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target 3
+
+
+#############################################
+# Order-only phony target for 3
+
+build cmake_object_order_depends_target_3: phony || CMakeFiles/3.dir
+
+build CMakeFiles/3.dir/3.cpp.obj: CXX_COMPILER__3_unscanned_Debug C$:/Users/alber_wzgn3ys/Documents/GitHub/casofinal2/3.cpp || cmake_object_order_depends_target_3
+  DEP_FILE = CMakeFiles\3.dir\3.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\3.dir
+  OBJECT_FILE_DIR = CMakeFiles\3.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target 3
+
+
+#############################################
+# Link the executable 3.exe
+
+build 3.exe: CXX_EXECUTABLE_LINKER__3_Debug CMakeFiles/3.dir/3.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = 3.exe
+  TARGET_IMPLIB = lib3.dll.a
+  TARGET_PDB = 3.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -134,6 +167,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build 2: phony 2.exe
 
+build 3: phony 3.exe
+
 build casofinal2: phony casofinal2.exe
 
 # =============================================================================
@@ -144,7 +179,7 @@ build casofinal2: phony casofinal2.exe
 #############################################
 # Folder: C:/Users/alber_wzgn3ys/Documents/GitHub/casofinal2/cmake-build-debug
 
-build all: phony casofinal2.exe 2.exe
+build all: phony casofinal2.exe 2.exe 3.exe
 
 # =============================================================================
 # Built-in targets
