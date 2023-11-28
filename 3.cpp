@@ -103,3 +103,32 @@ public:
     }
 };
 
+int main() {
+    Variant v;
+
+    VariantInt* intValue = new VariantInt(42);
+    VariantString* stringValue = new VariantString("Hello, world!");
+    VariantList* listValue = new VariantList();
+    listValue->addValue(new VariantInt(1));
+    listValue->addValue(new VariantString("Two"));
+    VariantProcedure* procValue = new VariantProcedure([]() { std::cout << "Executing procedure" << std::endl; });
+
+    v.setData(intValue);
+    std::cout << v.to_json().dump() << std::endl;
+
+    v.setData(stringValue);
+    std::cout << v.to_json().dump() << std::endl;
+
+    v.setData(listValue);
+    std::cout << v.to_json().dump() << std::endl;
+
+    v.setData(procValue);
+    std::cout << v.to_json().dump() << std::endl;
+
+    delete intValue;
+    delete stringValue;
+    delete listValue;
+    delete procValue;
+
+    return 0;
+}
