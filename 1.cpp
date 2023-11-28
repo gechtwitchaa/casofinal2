@@ -97,4 +97,35 @@ public:
     }
 };
 
+int main() {
+    Variant v;
+
+    VariantInt* intValue = new VariantInt(42);
+    VariantString* stringValue = new VariantString("Hello, world!");
+    VariantList* listValue = new VariantList();
+    listValue->addValue(new VariantInt(1));
+    listValue->addValue(new VariantString("Two"));
+    VariantProcedure* procValue = new VariantProcedure([]() { std::cout << "Executing procedure" << std::endl; });
+
+    v.setData(intValue);
+    v.printData();
+
+    v.setData(stringValue);
+    v.printData();
+
+    v.setData(listValue);
+    v.printData();
+
+    v.setData(procValue);
+    v.printData();
+    procValue->execute();
+
+    delete intValue;
+    delete stringValue;
+    delete listValue;
+    delete procValue;
+
+    return 0;
+}
+
 
