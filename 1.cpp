@@ -32,3 +32,29 @@ public:
         std::cout << "String: " << value << std::endl;
     }
 };
+
+class VariantList : public VariantValue {
+private:
+    std::vector<VariantValue*> value;
+
+public:
+    void addValue(VariantValue* val) {
+        value.push_back(val);
+    }
+
+    void print() const override {
+        std::cout << "List: [";
+        for (const auto& elem : value) {
+            elem->print();
+        }
+        std::cout << "]" << std::endl;
+    }
+
+    ~VariantList() {
+        for (auto& elem : value) {
+            delete elem;
+        }
+    }
+};
+
+
